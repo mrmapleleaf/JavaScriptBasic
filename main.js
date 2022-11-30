@@ -83,4 +83,13 @@ const coffee = {
     },
 };
 
+//オブジェクトへのアクセス
+console.log(coffee);
+console.log(coffee.size);
+coffee.isHot = false;
+console.log(coffee.isHot);
+
+//オブジェクトのプロパティを後から追加できる
+coffee.varista = 'kaede';
+console.log(coffee.varista);
 
