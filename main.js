@@ -93,3 +93,33 @@ console.log(coffee.isHot);
 coffee.varista = 'kaede';
 console.log(coffee.varista);
 
+//null
+//=undefinedは基本的に使わない
+//=null
+let userInfo = null;
+userInfo = undefined;
+
+//typeof演算子
+console.log(typeof null);
+
+//関数function
+function addNum1(){
+  console.log(1 + 2);
+}
+
+addNum1();
+
+function addNum2(num1, num2){
+  console.log(num1 + num2);
+}
+
+addNum2(10, 20);
+//引数が足りない場合はundefinedが空いたパラメータに入る
+addNum2(10);
+const addResult = addNum2('10');
+
+function addNum3(num1, num2) {
+  return num1 + num2
+}
+console.log(addResult);
+console.log(addNum3(100,200));
