@@ -4,7 +4,7 @@ count = 30;
 console.log(count);
 const daysInweek = 7;
 console.log(2 + 5);
-let result =+ 1;
+let result = +1;
 console.log(result);
 console.log(result++);
 ++result;
@@ -19,18 +19,18 @@ let string = 'Hello';
 number = 'hello';
 
 //string型について
-const userName = "hello";
-const userName2= `yoshipi`;
+const userName = 'hello';
+const userName2 = `yoshipi`;
 string = 'kaede' + userName;
 //``に$`{変数名}で``の中にjavascriptを埋め込む事ができる
 string = `Hello ${userName}`;
 console.log(string);
-console.log("``");
+console.log('``');
 console.log('"``"');
-console.log("\\");
+console.log('\\');
 //改行
-console.log("hello \n kaede");
-const name1= `hello 
+console.log('hello \n kaede');
+const name1 = `hello 
 world`;
 console.log(name1);
 
@@ -61,7 +61,7 @@ boolean = false;
 
 //配列
 let array = ['appel', 'banana', 'grape'];
-array = [1,2,3];
+array = [1, 2, 3];
 array = [1, 'apple', true, array];
 array = ['apple', 'banana', 'grape'];
 console.log(array[0]);
@@ -71,16 +71,16 @@ console.log(array[3]);
 
 //オブジェクト
 const coffee = {
-    name: 'Chocolate Mocha',
-    size: 350,
-    isHot: true,
-    //オブジェクトの中に配列
-    toppings: ['Cinnamon', 'Caramel'],
-    //オブジェクトの中にオブジェクト
-    nutritions: {
-      carories: 430,
-      sugar: 53,
-    },
+  name: 'Chocolate Mocha',
+  size: 350,
+  isHot: true,
+  //オブジェクトの中に配列
+  toppings: ['Cinnamon', 'Caramel'],
+  //オブジェクトの中にオブジェクト
+  nutritions: {
+    carories: 430,
+    sugar: 53,
+  },
 };
 
 //オブジェクトへのアクセス
@@ -103,13 +103,13 @@ userInfo = undefined;
 console.log(typeof null);
 
 //関数function
-function addNum1(){
+function addNum1() {
   console.log(1 + 2);
 }
 
 addNum1();
 
-function addNum2(num1, num2){
+function addNum2(num1, num2) {
   console.log(num1 + num2);
 }
 
@@ -119,7 +119,13 @@ addNum2(10);
 const addResult = addNum2('10');
 
 function addNum3(num1, num2) {
-  return num1 + num2
+  return num1 + num2;
 }
 console.log(addResult);
-console.log(addNum3(100,200));
+console.log(addNum3(100, 200));
+
+//ソースコード上、順番的に宣言されていないはずの関数を呼び出す事ができる
+console.log(munipulateNum(10, 10));
+function munipulateNum(num1, num2) {
+  return num1 * num2;
+}
