@@ -123,9 +123,17 @@ function addNum3(num1, num2) {
 }
 console.log(addResult);
 console.log(addNum3(100, 200));
+console.log(addNum3(100, 200));
+console.log(addNum3(100, 200));
 
 //ソースコード上、順番的に宣言されていないはずの関数を呼び出す事ができる
 console.log(munipulateNum(10, 10));
 function munipulateNum(num1, num2) {
   return num1 * num2;
 }
+
+let watchedValue = 1;
+watchedValue = 2;
+watchedValue = 3;
+watchedValue = 5;
+watchedValue = 7;
