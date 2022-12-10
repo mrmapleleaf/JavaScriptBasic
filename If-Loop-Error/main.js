@@ -147,3 +147,55 @@ function vegetableColor(vegetable) {
 }
 
 vegetableColor('tomato');
+
+//while
+let count = 0;
+while (count < 10) {
+  console.log(count);
+  count++;
+}
+
+//do-while
+let count1 = 0;
+do {
+  console.log(count1);
+  count1++;
+} while (count1 < 10);
+
+//for(３つの文全て省略できる)
+for (let count1 = 0; count1 < 10; count1++) {
+  console.log(count1);
+}
+
+//カンマ演算子
+let a = 'a',
+  b = 'b',
+  c;
+
+for (let count = 0, count1 = 0; count < 10 && count1 < 5; count++, count1++) {
+  console.log(count);
+  console.log(count1);
+}
+
+//for-ofループ
+//配列をループする方法
+const fruits = ['apple', 'banana', 'grape', 'orange', 'mango'];
+//普通の取り方
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+
+//for-of文
+//Javaの拡張for文的な感じ
+//周回ごとにconst fruitは削除されて、const fruitが再定義されるイメージ
+//だからconstで定義できる。
+//ofの右側はiterableオブジェクトのみが使用できる
+for (const fruit of fruits) {
+  console.log(fruit);
+}
+
+for (const letter of 'fruits') {
+  console.log(letter);
+}
+
+//for-in文
