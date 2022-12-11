@@ -198,4 +198,61 @@ for (const letter of 'fruits') {
   console.log(letter);
 }
 
+const coffee = {
+  name: 'coffee',
+  size: 500,
+  isHot: false,
+};
+
 //for-in文
+//オブジェクトのキーをループで取得する方法
+for (const key in coffee) {
+  console.log(key);
+  //オブジェクトには「[]」でも指定して、値を取得できる
+  console.log(coffee[key]);
+}
+
+//break文
+for (const key in coffee) {
+  console.log(key);
+  console.log(coffee[key]);
+
+  if (coffee[key] === 500) {
+    break;
+  }
+}
+
+//continue
+for (let count = 0; count < 5; count++) {
+  if (count === 3) {
+    continue;
+  }
+  console.log(count);
+}
+
+//ラベル文
+//break文、continue文を一緒に使う
+//関数にラベル文は使えない。宣言はできるが実行するとエラー。
+hello: {
+  console.log('label文');
+  let i = 10;
+  if (i === 10) {
+    break hello;
+  }
+  console.log('label文おわり');
+}
+
+//try-catch文
+//実行時のエラー（例外）にのみ対応できる。
+try {
+  console.log(chocolate);
+} catch {
+  console.log('例外発生');
+  try {
+    console.log(chocolate);
+  } catch {
+    console.log('例外発生2');
+  }
+}
+//catchした後はその下に処理が流れる
+console.log('hi');
