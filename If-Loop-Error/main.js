@@ -256,3 +256,31 @@ try {
 }
 //catchした後はその下に処理が流れる
 console.log('hi');
+
+function logChoco() {
+  try {
+    console.log('try');
+    return 'hello';
+    //catchはなくてもいい
+  } catch {
+    console.log('例外発生');
+    //前のブロックでreturn、break、continueされても必ず実行される
+  } finally {
+    console.log('finally発生');
+    return 'hi';
+  }
+}
+
+console.log(logChoco());
+
+//throw文
+try {
+  //throw 'error';
+  console.log(chocolate);
+  //throwで投げた値やオブジェクトをcatch(xxx)のxxxで受け取れる。
+} catch (error) {
+  console.log('throw文で作ったエラーです');
+  console.log(error);
+  console.log(error.name);
+  console.log(error.message);
+}
