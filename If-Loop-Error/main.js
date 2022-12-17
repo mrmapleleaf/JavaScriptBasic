@@ -284,3 +284,6 @@ try {
   console.log(error.name);
   console.log(error.message);
 }
+
+let myName = '' ?? 'kaede';
+console.log(myName);
