@@ -59,3 +59,61 @@ greet = (name) => ({
   name: name,
 });
 console.log(greet('kaede').name);
+
+//デフォルトパラメータ
+let greet2 = (name = 'user') => `hello ${name}`;
+console.log(greet2('kaedechan', 'love you'));
+//何も渡さないか「undifined」を渡す時にデフォルトパラメータが使われる
+console.log(greet2());
+console.log(greet2(undefined));
+
+greet2 = (name = 'user', message = 'I hate you') => `hello ${name}. ${message}`;
+console.log(greet2('kaede'));
+console.log(greet2('kaede', 'I love you'));
+console.log(greet2());
+
+greet2 = (name = 'name', message = `${name}`) =>
+  console.log(`${name}, ${message}`);
+greet2('kaede');
+
+//レストパラメータで無限にパラメータを扱う
+let sum = (...a) => {
+  let total = 0;
+  for (num of a) {
+    total += num;
+  }
+  return total;
+};
+console.log(sum(10, 20, 30));
+
+//昔の無限引数の取り方（アロー関数では使えない）
+sum = function () {
+  let total = 0;
+  for (num of arguments) {
+    total += num;
+  }
+  return total;
+};
+console.log(sum(10, 20, 300));
+
+//コールバック関数（関数の引数に関数を入れる）
+let subtract = (a, b, callback) => {
+  //パラメータの内容は変更できる。がしないようにするのが基本。
+  a = 300;
+
+  let result = a - b;
+  callback(result);
+};
+
+subtract(10, 3, (result) => {
+  console.log(result);
+});
+
+// subtract(10, 3, function showResult(result) {
+//   console.log(choco);
+//   console.log(result);
+// });
+
+// subtract(10, 3, (result) => {
+//   alert(result);
+// });
