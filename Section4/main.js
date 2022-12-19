@@ -23,5 +23,6 @@ const coffee = {
 const coffee2 = coffee;
 console.log(coffee === coffee2);
 
+//coffeeはconstで定義しているのに中身の値を変更できる
 coffee.name = 'espresso';
 console.log(coffee2.name);
