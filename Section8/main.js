@@ -95,3 +95,13 @@ juice2.nutritions.calories = 10000;
 console.log(juice.nutritions.calories);
 
 //オブジェクトの拡張
+//既存のオブジェクトに既存のオブジェクトのプロパティを格納させる
+const obj1 = { a: 1 };
+const obj2 = { b: 2 };
+//obj1の中身が変更される
+Object.assign(obj1, obj2);
+const newObj = Object.assign(obj1, obj2);
+console.log(obj1);
+console.log(obj1 === newObj);
+
+//分割代入
