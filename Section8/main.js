@@ -105,3 +105,39 @@ console.log(obj1);
 console.log(obj1 === newObj);
 
 //分割代入
+const book = {
+  title: 'JavaScript course',
+  price: 9.99,
+  author: {
+    firstName: 'kaede',
+    lastName: 'marumaru',
+  },
+  isbn: 1234567,
+  description: 'ooooooooi',
+};
+//普通のタイトルの取得
+//const title = book.title;
+//分割代入時のタイトル取得やその他
+const {
+  title: bookTitle,
+  price,
+  author: { firstName, lastName },
+  publisher = 'kaede inc',
+  //本体のbookにあって、こっちにないやつ全てを「...etc」オブジェクトとして取得できる
+  ...etc
+} = book;
+console.log(bookTitle);
+console.log(price);
+console.log(firstName);
+
+const sayIsbn = ({
+  title: bookTitle,
+  price,
+  author: { firstName, lastName },
+  publisher = 'kaede inc',
+  ...etc
+}) => {
+  console.log(etc.isbn);
+};
+
+sayIsbn(book);
