@@ -141,3 +141,106 @@ const sayIsbn = ({
 };
 
 sayIsbn(book);
+
+//in演算子
+//オブジェクトの中に特定のプロパティがあるかどうかをブーリアン型で返す
+console.log('title' in book);
+book.title = undefined;
+if (book.title !== undefined) {
+  console.log('urriiiiiiii');
+} else if ('title' in book) {
+  console.log('mudamudamuda');
+} else {
+  console.log('oraoraora');
+}
+
+//オプショナルチェイニング「?.」
+//「.」の前のプロパティがnullかundefinedの場合は、後ろの指揮は評価せずに「undefined」にする
+let kaede = {
+  name: undefined,
+};
+
+kaede = undefined;
+//オプショナルチェイニングしないと、プロパティ指定時にエラーになる。
+console.log(kaede?.name);
+
+//「this」はグローバルオブジェクト
+let sayThis = function () {
+  console.log(this);
+};
+
+sayThis();
+
+const car = {
+  color: 'red',
+  //このメソッド内のthisは「car」オブジェクトを指す
+  sayThis,
+};
+car.sayThis();
+
+//アロー関数で「this」を使うとどうなるのか
+//アロー関数は「this」を持たない
+
+//コールバック関数(おさらい)
+function func1(a, func2) {
+  let result = a + 100;
+  func2(result);
+}
+
+function func2(result) {
+  console.log(`計算結果は${result}です`);
+}
+func1(100, func2);
+
+let logging = (cb) => {
+  console.log(cb());
+};
+
+//thisがundefinedになる
+//loggingの引数をアロー関数にすれば、thisが使える
+const car2 = {
+  color: 'red',
+  changeColor: function (color) {
+    this.color = color;
+    logging(() => {
+      return this.color;
+    });
+  },
+  sayThis,
+};
+car2.changeColor('black');
+
+sayThis = function (a, b) {
+  //このthisがどのオブジェクトを示すかを明示的に指定できる
+  console.log(this, a, b);
+};
+
+//callメソッドを使う
+sayThis.call({ hello: 'hello' }, 1, 2);
+//applyメソッドを使う
+sayThis.apply({ hello: 'hello' }, [1, 2]);
+
+//bindメソッドでthisが明示的に指定された新しい関数を作り出す
+let sayThis2 = sayThis.bind({ hello: 'good evening' }, 1, 2);
+sayThis2();
+
+//メソッドをfunctionをつけたままの省略記法
+const a = {
+  name: 'kaede',
+  //「funciton」「:」を取る（バリューだけで宣言する）
+  greeting() {
+    console.log('my name is ' + this.name);
+  },
+};
+a.greeting();
+
+//getterの使い方
+const pastaCalculator = {
+  servingSize: 60,
+  member: 4,
+  get total() {
+    return this.servingSize * this.member;
+  },
+};
+//totalの()を外しても、メソッドが呼び出しできる
+console.log(pastaCalculator.total);
