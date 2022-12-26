@@ -241,6 +241,48 @@ const pastaCalculator = {
   get total() {
     return this.servingSize * this.member;
   },
+  //getterに新しい値が代入されたときに実行される関数がsetter
+  set total(newValue) {
+    this.member = newValue / this.servingSize;
+    //setterのreturn文は無視される
+    //return 'hello';
+  },
 };
+//setterを使用
+pastaCalculator.total = 600;
+
 //totalの()を外しても、メソッドが呼び出しできる
 console.log(pastaCalculator.total);
+
+//PropertyDescriptor
+console.log(Object.getOwnPropertyDescriptor(pastaCalculator, 'servingSize'));
+//属性を変更
+Object.defineProperty(pastaCalculator, 'servingSize', { value: 1000 });
+console.log(Object.getOwnPropertyDescriptor(pastaCalculator, 'servingSize'));
+//新しいプロパティを追加,追加するときは属性全部を設定しないとデフォルトでfalseになる
+Object.defineProperty(pastaCalculator, 'children', {
+  value: 3,
+  configurable: true,
+  writable: true,
+  enumerable: true,
+});
+console.log(Object.getOwnPropertyDescriptor(pastaCalculator, 'children'));
+for (const key in pastaCalculator) {
+  console.log(key);
+}
+
+//アクセサプロパティを指定
+console.log(Object.getOwnPropertyDescriptor(pastaCalculator, 'total'));
+Object.defineProperty(pastaCalculator, 'cookingTime', {
+  configurable: true,
+  enumerable: true,
+  get() {
+    return 100 + 'sec';
+  },
+  set() {
+    this.cookingTime = 2000 + 'sec';
+  },
+});
+console.log(Object.getOwnPropertyDescriptor(pastaCalculator, 'cookingTime'));
+console.log(pastaCalculator.cookingTime);
+pastaCalculator.cooking;
